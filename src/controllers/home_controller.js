@@ -2,12 +2,16 @@ const db = require("../../models");
 
 exports.index = async (req, res) => {
   try {
-    let classifieds = await db.Classified.findAll({ raw: true });
-    console.log(classifieds);
+    let classifieds = await db.Classified.findAll({
+      logging: false,
+      raw: true,
+    });
+
     res.render("home", {
-      style: "css/styleHome.css",
+      style: "css/style.css",
       title: "Home",
       classifieds: classifieds,
+      helpers: require("../helpers/handlebarsHelpers"),
     });
   } catch (error) {
     res.render("error", {
@@ -18,6 +22,17 @@ exports.index = async (req, res) => {
 
 exports.create = async (req, res) => {
   try {
+    await db.Classified.create(
+      {
+        id: 7,
+        title: "Eder2",
+        content: "text test222",
+        user_id: 668,
+      },
+      { logging: false }
+    );
+
+    res.redirect("/");
   } catch (error) {
     res.render("error", {
       error: error,

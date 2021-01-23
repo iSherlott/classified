@@ -1,5 +1,20 @@
-{{#each classifieds}}
-    {{title}}
-    {{content}}
-    {{user_id}}<br>
-{{/each}}
+<article>
+
+    <section class="headBox">
+        <h1 class="floatLeft">Classificados</h1> 
+        <button class="floatRight mt-5">+ Novo Classificado</button>
+    </section>
+    <br />
+    <section>
+        {{#each classifieds}}
+            <div class="card floatLeft">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{time updatedAt}}</h6>
+                    <p class="card-text">{{content}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </section>
+    
+</article>
