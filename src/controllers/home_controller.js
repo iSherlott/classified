@@ -7,10 +7,13 @@ exports.index = async (req, res) => {
       raw: true,
     });
 
+    let count = classifieds.length;
+
     res.render("home", {
       style: "css/style.css",
       title: "Home",
       classifieds: classifieds,
+      count: count,
       helpers: require("../helpers/handlebarsHelpers"),
     });
   } catch (error) {
