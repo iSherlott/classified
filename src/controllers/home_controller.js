@@ -3,6 +3,7 @@ const db = require("../../models");
 exports.index = async (req, res) => {
   try {
     let classifieds = await db.Classified.findAll({
+      order: [["updatedAt", "DESC"]],
       logging: false,
       raw: true,
     });
@@ -27,10 +28,8 @@ exports.create = async (req, res) => {
   try {
     await db.Classified.create(
       {
-        id: 7,
-        title: "Eder2",
-        content: "text test222",
-        user_id: 668,
+        title: req.body.title,
+        content: req.body.content,
       },
       { logging: false }
     );

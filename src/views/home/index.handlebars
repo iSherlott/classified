@@ -1,20 +1,31 @@
-<article>
+<main>
 
     <section class="headBox">
         <h1 class="floatLeft">Classificados</h1> 
         <button type="button" class="floatRight mt-5" data-toggle="modal" data-target="#newClassified">+ Novo Classificado</button>
     </section>
     <br />
-    <section>
+
+    <article class="scroll_menu">
+        <button onclick="scroll_minus()" id="buttton_minus" class="btn btn_style btn-secondary btn-lg">&#11164</button>
+        <span class="page"></span>
+        <button onclick="scroll_plus()" id="buttton_plus" class="btn btn_style btn-lg btn-primary">&#10148</button>
+    </article>
+
+    <section id="display" class="row">
         {{#each classifieds}}
-            <div class="card floatLeft">
-                <div class="card-body">
-                    <h5 class="card-title">{{title}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{time updatedAt}}</h6>
-                    <p class="card-text">{{content}}</p>
-                </div>
-            </div>
+            <article class="col-3 card-group mt-4">
+                <section class="card">
+                    <section class="card-body">
+                        <h4 class="card-title">{{title}}</h4>
+                        <p class="card-text">{{content}}</p>
+                    </section>
+                    <section class="card-footer">
+                        <small class="text-muted floatRight">{{time updatedAt}}</small>
+                    </section>
+                </section>
+            </article>
         {{/each}}
     </section>
     
-</article>
+</main>
